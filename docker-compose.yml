@@ -1,0 +1,14 @@
+version: '3'
+services:
+  apache:
+    container_name: apache_container
+    build: ./apache
+    links:
+      - node
+  
+  node:
+    container_name: node_container
+    build: ./node
+    ports:
+      - 3000:3000
+    command: node server.js
